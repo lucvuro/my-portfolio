@@ -16,7 +16,6 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import { Brightness4, Brightness7 } from '@mui/icons-material'
 import { getDesignTokens } from '@/theme'
-import { text } from 'stream/consumers'
 export interface MainLayoutProps {
   children: React.ReactNode
 }
@@ -29,7 +28,7 @@ export function MainLayout(props: MainLayoutProps) {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
   }
-  const [mode, setMode] = useState<PaletteMode>('light')
+  const [mode, setMode] = useState<PaletteMode>('dark')
   const handleChangeMode = () => {
     if (mode === 'light') {
       setMode('dark')
@@ -62,7 +61,7 @@ export function MainLayout(props: MainLayoutProps) {
                   textDecoration: 'none',
                 }}
               >
-                LUCVURO
+                ⌬LUCVURO
               </Typography>
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                 <IconButton
@@ -96,7 +95,7 @@ export function MainLayout(props: MainLayoutProps) {
                   {pages.map((page: string) => {
                     return (
                       <MenuItem key={page}>
-                        <Link href="#">
+                        <Link href="/" legacyBehavior>
                           <Typography textAlign="center">{page}</Typography>
                         </Link>
                       </MenuItem>
@@ -120,7 +119,7 @@ export function MainLayout(props: MainLayoutProps) {
                   textDecoration: 'none',
                 }}
               >
-                LUCVURO
+                ⌬LUCVURO
               </Typography>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map((page: string) => {
