@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import { Brightness4, Brightness7 } from '@mui/icons-material'
 import { getDesignTokens } from '@/theme'
+import Head from 'next/head'
 export interface MainLayoutProps {
   children: React.ReactNode
 }
@@ -32,37 +33,45 @@ export function MainLayout(props: MainLayoutProps) {
   const handleChangeMode = () => {
     if (mode === 'light') {
       setMode('dark')
-      document.getElementsByTagName('body')[0].style.background = "#0c0c0c" 
+      document.getElementsByTagName('body')[0].style.background = '#0c0c0c'
     } else {
       setMode('light')
-      document.getElementsByTagName('body')[0].style.background = "#f6f6f6"
+      document.getElementsByTagName('body')[0].style.background = '#f6f6f6'
     }
   }
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode])
   return (
     <>
+      <Head>
+        <title>lucvuro.dev</title>
+        <meta name="description" content="Portfolio of lucvuro - A developer" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <ThemeProvider theme={theme}>
         <AppBar position="static" color="transparent">
           <Container maxWidth="xl">
             <Toolbar disableGutters>
-              <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 2,
-                  ml: 2,
-                  display: { xs: 'none', md: 'flex' },
-                  fontFamily: 'monospace',
-                  fontWeight: 700,
-                  letterSpacing: '.3rem',
-                  color: 'text.primary',
-                  textDecoration: 'none',
-                }}
-              >
-                ⌬LUCVURO
-              </Typography>
+              <Link href="/" legacyBehavior>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  sx={{
+                    mr: 2,
+                    ml: 2,
+                    display: { xs: 'none', md: 'flex' },
+                    fontFamily: 'monospace',
+                    fontWeight: 700,
+                    letterSpacing: '.3rem',
+                    color: 'text.primary',
+                    textDecoration: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  ⌬LUCVURO
+                </Typography>
+              </Link>
+
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                 <IconButton
                   size="large"
@@ -95,7 +104,7 @@ export function MainLayout(props: MainLayoutProps) {
                   {pages.map((page: string) => {
                     return (
                       <MenuItem key={page}>
-                        <Link href="/" legacyBehavior>
+                        <Link href={`/${page === 'Home' ? '' : page.toLowerCase()}`} legacyBehavior>
                           <Typography textAlign="center">{page}</Typography>
                         </Link>
                       </MenuItem>
@@ -103,35 +112,42 @@ export function MainLayout(props: MainLayoutProps) {
                   })}
                 </Menu>
               </Box>
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                  mr: 2,
-                  display: { xs: 'flex', md: 'none' },
-                  flexGrow: 1,
-                  fontFamily: 'monospace',
-                  fontWeight: 700,
-                  letterSpacing: '.2rem',
-                  color: 'text.primary',
-                  textDecoration: 'none',
-                }}
-              >
-                ⌬LUCVURO
-              </Typography>
+              <Link href="/" legacyBehavior>
+                <Typography
+                  variant="h5"
+                  noWrap
+                  sx={{
+                    mr: 2,
+                    display: { xs: 'flex', md: 'none' },
+                    flexGrow: 1,
+                    fontFamily: 'monospace',
+                    fontWeight: 700,
+                    letterSpacing: '.2rem',
+                    color: 'text.primary',
+                    textDecoration: 'none',
+                    cursor: 'pointer'
+                  }}
+                >
+                  ⌬LUCVURO
+                </Typography>
+              </Link>
+
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map((page: string) => {
                   return (
-                    <Button
+                    <Link
                       key={page}
-                      onClick={handleCloseNavMenu}
-                      sx={{ my: 2, color: 'text.primary', display: 'block' }}
-                      size="large"
+                      href={`/${page === 'Home' ? '' : page.toLowerCase()}`}
+                      legacyBehavior
                     >
-                      {page}
-                    </Button>
+                      <Button
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'text.primary', display: 'block' }}
+                        size="large"
+                      >
+                        {page}
+                      </Button>
+                    </Link>
                   )
                 })}
               </Box>

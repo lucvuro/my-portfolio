@@ -5,25 +5,24 @@ import { MainLayout } from '@/layouts'
 import { ReactElement } from 'react'
 import { NextPageWithLayout } from '@/next'
 import Image from 'next/image'
-import avatarProfile from '@/public/avatar.jpeg'
+import avatarProfile from '@/assets/images/avatar.jpeg'
 import { Box, Button, Icon } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import Typewriter from 'typewriter-effect'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets: ['latin'] })
 
 const title2: string[] = [`I'm a Frontend Developer`, `I love coding`]
 const Home: NextPageWithLayout = () => {
+  const router = useRouter()
+  const handleClickContact = () => {
+    router.push('/contact')
+  }
   return (
     <>
-      <Head>
-        <title>lucvuro.dev</title>
-        <meta name="description" content="Portfolio of lucvuro - A developer" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main className={`${styles.main}`}>
         <div className={styles.card}>
           <div className={styles.cardHeader}>
@@ -48,7 +47,7 @@ const Home: NextPageWithLayout = () => {
                 <Button variant="contained" className="card-btn-mp">
                   My Portfolio
                 </Button>
-                <Button variant="outlined" className="card-btn-cm">
+                <Button onClick={handleClickContact} variant="outlined" className="card-btn-cm">
                   Contact Me
                 </Button>
               </div>
