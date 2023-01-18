@@ -1,0 +1,67 @@
+.main {
+  padding: 3rem;
+  font-family: 'Marcellus';
+}
+.contactHeader {
+}
+.contactTitle {
+  font-size: 3.5rem;
+  font-weight: normal;
+}
+.contactContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 2rem;
+}
+.contactContentLeft {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+  justify-content: center;
+}
+.contactContentTitle {
+  font-size: 2rem;
+}
+.contactContentEmail > a {
+  color: unset;
+}
+.contactForm {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 4rem 0;
+}
+.contactFormInfo {
+  display: flex;
+  gap: 2rem;
+}
+.contactFormPlaceHolder {
+  font-family: inherit;
+}
+@media only screen and (max-width: 800px) {
+  .contactTitle {
+    font-size: 2.5rem;
+  }
+  .contactContentTitle {
+    font-size: 1.5rem;
+  }
+  .contactContent {
+    flex-direction: column;
+    gap: unset;
+  }
+  .contactContentLeft {
+    order: 2;
+    flex-basis: unset;
+  }
+  .contactForm {
+    flex-basis: unset;
+    padding-bottom: 2rem;
+  }
+  .contactFormInfo {
+    flex-direction: column;
+  }
+}
