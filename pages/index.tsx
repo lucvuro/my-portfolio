@@ -20,6 +20,9 @@ const Home: NextPageWithLayout = () => {
   const handleClickContact = () => {
     router.push('/contact')
   }
+  const handleClickProject = () => {
+    router.push('/projects')
+  }
   return (
     <>
       <main className={`${styles.main}`}>
@@ -43,7 +46,7 @@ const Home: NextPageWithLayout = () => {
 
             <div className={styles.cardBtnActions}>
               <div className={styles.cardBtn}>
-                <Button variant="contained" className="card-btn-mp">
+                <Button onClick={handleClickProject} variant="contained" className="card-btn-mp">
                   My Projects
                 </Button>
                 <Button onClick={handleClickContact} variant="outlined" className="card-btn-cm">
