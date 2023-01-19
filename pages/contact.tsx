@@ -7,6 +7,7 @@ import { Alert, Button, Divider, Snackbar, TextField, Typography } from '@mui/ma
 import { Controller, useForm } from 'react-hook-form'
 import emailjs from '@emailjs/browser'
 import { LoadingButton } from '@mui/lab'
+import Head from 'next/head'
 export interface ContactPageProps {}
 
 const Contact: NextPageWithLayout = (props: ContactPageProps) => {
@@ -53,6 +54,9 @@ const Contact: NextPageWithLayout = (props: ContactPageProps) => {
   }
   return (
     <>
+      <Head>
+        <title>Contact</title>
+      </Head>
       <Snackbar
         open={openSuccess}
         autoHideDuration={3000}
