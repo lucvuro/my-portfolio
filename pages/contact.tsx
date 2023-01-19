@@ -55,7 +55,7 @@ const Contact: NextPageWithLayout = (props: ContactPageProps) => {
   return (
     <>
       <Head>
-        <title>Contact</title>
+        <title>Contact | lucvuro.dev</title>
       </Head>
       <Snackbar
         open={openSuccess}

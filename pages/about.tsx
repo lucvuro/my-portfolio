@@ -47,7 +47,7 @@ const About: NextPageWithLayout = (props: AboutPageProps) => {
   return (
     <>
       <Head>
-        <title>About Me</title>
+        <title>About Me | lucvuro.dev</title>
       </Head>
       <main className={styles.main}>
         <Container maxWidth="lg">
