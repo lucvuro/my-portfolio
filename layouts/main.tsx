@@ -9,6 +9,7 @@ import {
   PaletteMode,
   ThemeProvider,
   Toolbar,
+  Tooltip,
   Typography,
 } from '@mui/material'
 import { Box, Container } from '@mui/system'
@@ -20,7 +21,7 @@ import Head from 'next/head'
 export interface MainLayoutProps {
   children: React.ReactNode
 }
-const pages = ['Home', 'Portfolio', 'About', 'Contact']
+const pages = ['Home', 'Projects', 'About', 'Contact']
 export function MainLayout(props: MainLayoutProps) {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
@@ -125,7 +126,7 @@ export function MainLayout(props: MainLayoutProps) {
                     letterSpacing: '.2rem',
                     color: 'text.primary',
                     textDecoration: 'none',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
                   }}
                 >
                   ⌬LUCVURO
@@ -158,10 +159,11 @@ export function MainLayout(props: MainLayoutProps) {
                   flexGrow: 0,
                 }}
               >
-                {/* {theme.palette.mode} mode */}
-                <IconButton sx={{ ml: 1 }} color="inherit" onClick={handleChangeMode}>
-                  {mode === 'light' ? <Brightness4 /> : <Brightness7 />}
-                </IconButton>
+                <Tooltip title="Change mode">
+                  <IconButton sx={{ ml: 1 }} color="inherit" onClick={handleChangeMode}>
+                    {mode === 'light' ? <Brightness4 /> : <Brightness7 />}
+                  </IconButton>
+                </Tooltip>
               </Box>
             </Toolbar>
           </Container>

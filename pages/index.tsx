@@ -13,13 +13,15 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import Typewriter from 'typewriter-effect'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets: ['latin'] })
 
 const title2: string[] = [`I'm a Frontend Developer`, `I love coding`]
 const Home: NextPageWithLayout = () => {
   const router = useRouter()
   const handleClickContact = () => {
     router.push('/contact')
+  }
+  const handleClickProject = () => {
+    router.push('/projects')
   }
   return (
     <>
@@ -44,8 +46,8 @@ const Home: NextPageWithLayout = () => {
 
             <div className={styles.cardBtnActions}>
               <div className={styles.cardBtn}>
-                <Button variant="contained" className="card-btn-mp">
-                  My Portfolio
+                <Button onClick={handleClickProject} variant="contained" className="card-btn-mp">
+                  My Projects
                 </Button>
                 <Button onClick={handleClickContact} variant="outlined" className="card-btn-cm">
                   Contact Me
