@@ -18,6 +18,7 @@ import ccsapi from '@/assets/images/ccsapi.png'
 import ccsweb from '@/assets/images/ccsweb.png'
 import luchebot from '@/assets/images/luchedc.png'
 import lucvurodev from '@/assets/images/lucvurodev.png'
+import sticktogether from '@/assets/images/sticktogether.png'
 import Image from 'next/image'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import GitHubIcon from '@mui/icons-material/GitHub'
@@ -31,6 +32,13 @@ interface Project {
   link_github: string
 }
 const projects: Project[] = [
+  {
+    title: 'Stick Together',
+    subtitle: '@A voice & message chat website',
+    image: sticktogether,
+    link_demo: 'https://stick-together.lucvuro.dev/',
+    link_github: 'https://github.com/lucvuro/stick-together',
+  },
   {
     title: 'lucvuro.dev',
     subtitle: '@My Portfolio website',
@@ -56,7 +64,7 @@ const projects: Project[] = [
     title: 'Cardcaptor Sakura API',
     subtitle: '@An API to get info of cards',
     image: ccsapi,
-    link_demo: 'https://lingering-dawn-3306.fly.dev/',
+    link_demo: '',
     link_github: 'https://github.com/lucvuro/card-captor-sakura-card-api',
   },
 ]
@@ -74,117 +82,123 @@ const Projects: NextPageWithLayout = (props: ProjectsPageProps) => {
             <h1 className={styles.projectsTitle}>Projects</h1>
             <Divider />
           </Box>
-          {!query_1100 && !query_685 && <div className={styles.projectsContent}>
-            <ImageList cols={3} gap={30} sx={{ placeItems: 'center', marginTop: '3rem' }}>
-              {projects.map((project: Project) => {
-                return (
-                  <ImageListItem key={project.title}>
-                    <Image src={project.image} alt={project.title} width={300} height={150} />
-                    <ImageListItemBar
-                      title={project.title}
-                      subtitle={project.subtitle}
-                      actionIcon={
-                        <Box>
-                          {!project.link_demo ? (
-                            <></>
-                          ) : (
-                            <Link href={project.link_demo} target="_blank">
-                              <Tooltip title="View website">
-                                <IconButton sx={{ color: 'white' }} aria-label={`demo`}>
-                                  <RemoveRedEyeIcon />
+          {!query_1100 && !query_685 && (
+            <div className={styles.projectsContent}>
+              <ImageList cols={3} gap={30} sx={{ placeItems: 'center', marginTop: '3rem' }}>
+                {projects.map((project: Project) => {
+                  return (
+                    <ImageListItem key={project.title}>
+                      <Image src={project.image} alt={project.title} width={300} height={150} />
+                      <ImageListItemBar
+                        title={project.title}
+                        subtitle={project.subtitle}
+                        actionIcon={
+                          <Box>
+                            {!project.link_demo ? (
+                              <></>
+                            ) : (
+                              <Link href={project.link_demo} target="_blank">
+                                <Tooltip title="View website">
+                                  <IconButton sx={{ color: 'white' }} aria-label={`demo`}>
+                                    <RemoveRedEyeIcon />
+                                  </IconButton>
+                                </Tooltip>
+                              </Link>
+                            )}
+                            <Link href={project.link_github} target="_blank">
+                              <Tooltip title="View github">
+                                <IconButton sx={{ color: 'white' }} aria-label={`github`}>
+                                  <GitHubIcon />
                                 </IconButton>
                               </Tooltip>
                             </Link>
-                          )}
-                          <Link href={project.link_github} target="_blank">
-                            <Tooltip title="View github">
-                              <IconButton sx={{ color: 'white' }} aria-label={`github`}>
-                                <GitHubIcon />
-                              </IconButton>
-                            </Tooltip>
-                          </Link>
-                        </Box>
-                      }
-                    />
-                  </ImageListItem>
-                )
-              })}
-            </ImageList>
-          </div>}
-          {query_1100 && !query_685 && <div className={styles.projectsContent}>
-            <ImageList cols={2} gap={30} sx={{ placeItems: 'center', marginTop: '3rem' }}>
-              {projects.map((project: Project) => {
-                return (
-                  <ImageListItem key={project.title}>
-                    <Image src={project.image} alt={project.title} width={260} height={150} />
-                    <ImageListItemBar
-                      title={project.title}
-                      subtitle={project.subtitle}
-                      actionIcon={
-                        <Box>
-                          {!project.link_demo ? (
-                            <></>
-                          ) : (
-                            <Link href={project.link_demo} target="_blank">
-                              <Tooltip title="View website">
-                                <IconButton sx={{ color: 'white' }} aria-label={`demo`}>
-                                  <RemoveRedEyeIcon />
+                          </Box>
+                        }
+                      />
+                    </ImageListItem>
+                  )
+                })}
+              </ImageList>
+            </div>
+          )}
+          {query_1100 && !query_685 && (
+            <div className={styles.projectsContent}>
+              <ImageList cols={2} gap={30} sx={{ placeItems: 'center', marginTop: '3rem' }}>
+                {projects.map((project: Project) => {
+                  return (
+                    <ImageListItem key={project.title}>
+                      <Image src={project.image} alt={project.title} width={260} height={150} />
+                      <ImageListItemBar
+                        title={project.title}
+                        subtitle={project.subtitle}
+                        actionIcon={
+                          <Box>
+                            {!project.link_demo ? (
+                              <></>
+                            ) : (
+                              <Link href={project.link_demo} target="_blank">
+                                <Tooltip title="View website">
+                                  <IconButton sx={{ color: 'white' }} aria-label={`demo`}>
+                                    <RemoveRedEyeIcon />
+                                  </IconButton>
+                                </Tooltip>
+                              </Link>
+                            )}
+                            <Link href={project.link_github} target="_blank">
+                              <Tooltip title="View github">
+                                <IconButton sx={{ color: 'white' }} aria-label={`github`}>
+                                  <GitHubIcon />
                                 </IconButton>
                               </Tooltip>
                             </Link>
-                          )}
-                          <Link href={project.link_github} target="_blank">
-                            <Tooltip title="View github">
-                              <IconButton sx={{ color: 'white' }} aria-label={`github`}>
-                                <GitHubIcon />
-                              </IconButton>
-                            </Tooltip>
-                          </Link>
-                        </Box>
-                      }
-                    />
-                  </ImageListItem>
-                )
-              })}
-            </ImageList>
-          </div>}
-          {query_685 && <div className={styles.projectsContent}>
-            <ImageList cols={1} gap={30} sx={{ placeItems: 'center', marginTop: '3rem' }}>
-              {projects.map((project: Project) => {
-                return (
-                  <ImageListItem key={project.title}>
-                    <Image src={project.image} alt={project.title} width={260} height={150} />
-                    <ImageListItemBar
-                      title={project.title}
-                      subtitle={project.subtitle}
-                      actionIcon={
-                        <Box>
-                          {!project.link_demo ? (
-                            <></>
-                          ) : (
-                            <Link href={project.link_demo} target="_blank">
-                              <Tooltip title="View website">
-                                <IconButton sx={{ color: 'white' }} aria-label={`demo`}>
-                                  <RemoveRedEyeIcon />
+                          </Box>
+                        }
+                      />
+                    </ImageListItem>
+                  )
+                })}
+              </ImageList>
+            </div>
+          )}
+          {query_685 && (
+            <div className={styles.projectsContent}>
+              <ImageList cols={1} gap={30} sx={{ placeItems: 'center', marginTop: '3rem' }}>
+                {projects.map((project: Project) => {
+                  return (
+                    <ImageListItem key={project.title}>
+                      <Image src={project.image} alt={project.title} width={260} height={150} />
+                      <ImageListItemBar
+                        title={project.title}
+                        subtitle={project.subtitle}
+                        actionIcon={
+                          <Box>
+                            {!project.link_demo ? (
+                              <></>
+                            ) : (
+                              <Link href={project.link_demo} target="_blank">
+                                <Tooltip title="View website">
+                                  <IconButton sx={{ color: 'white' }} aria-label={`demo`}>
+                                    <RemoveRedEyeIcon />
+                                  </IconButton>
+                                </Tooltip>
+                              </Link>
+                            )}
+                            <Link href={project.link_github} target="_blank">
+                              <Tooltip title="View github">
+                                <IconButton sx={{ color: 'white' }} aria-label={`github`}>
+                                  <GitHubIcon />
                                 </IconButton>
                               </Tooltip>
                             </Link>
-                          )}
-                          <Link href={project.link_github} target="_blank">
-                            <Tooltip title="View github">
-                              <IconButton sx={{ color: 'white' }} aria-label={`github`}>
-                                <GitHubIcon />
-                              </IconButton>
-                            </Tooltip>
-                          </Link>
-                        </Box>
-                      }
-                    />
-                  </ImageListItem>
-                )
-              })}
-            </ImageList>
-          </div>}
+                          </Box>
+                        }
+                      />
+                    </ImageListItem>
+                  )
+                })}
+              </ImageList>
+            </div>
+          )}
         </Container>
       </main>
     </>
