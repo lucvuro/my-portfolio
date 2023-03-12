@@ -16,31 +16,23 @@ interface Skill {
 const skills: Skill[] = [
   {
     title: 'HTML',
-    value: 85,
-  },
-  {
-    title: 'CSS',
-    value: 75,
-  },
-  {
-    title: 'JavaScript',
-    value: 80,
-  },
-  {
-    title: 'ReactJS',
-    value: 80,
-  },
-  {
-    title: 'Redux',
-    value: 60,
-  },
-  {
-    title: 'NextJS',
     value: 50,
   },
   {
-    title: 'Python',
-    value: 65,
+    title: 'CSS',
+    value: 50,
+  },
+  {
+    title: 'JavaScript',
+    value: 30,
+  },
+  {
+    title: 'Typescript',
+    value: 30,
+  },
+  {
+    title: 'ReactJS',
+    value: 30,
   },
 ]
 const About: NextPageWithLayout = (props: AboutPageProps) => {
