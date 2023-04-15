@@ -1,17 +1,14 @@
-import Head from 'next/head'
-import { Roboto } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { MainLayout } from '@/layouts'
 import { ReactElement } from 'react'
 import { NextPageWithLayout } from '@/next'
 import Image from 'next/image'
-import avatarProfile from '@/assets/images/avatar.jpeg'
+import avatarProfile from '@/assets/images/caubedo.jpg'
 import { Box, Button, Icon } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import Typewriter from 'typewriter-effect'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const title2: string[] = [`I'm a Frontend Developer`, `I love coding`]
